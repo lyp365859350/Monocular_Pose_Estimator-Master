@@ -9,27 +9,17 @@
 using namespace std;
 using namespace cv;
 
-/*
- * The HD Digital Camera's Camera parameters
- */
-double camera_matrix[] =
-{
-    524.97f, 0.0f, 295.29f,
-    0.0f, 525.32f, 210.06f,
-    0.0f, 0.0f, 1.0f
-};
-double dist_coeff[] = {-0.026384f, -0.022035f, -0.005807f, -0.008081f};
 
 /*
  * my laptop camera parameters
  */
-//double camera_matrix[] =
-//{
-//    745.7, 0.0, 337.5,
-//    0.0, 749.1, 260.3,
-//    0.0, 0.0, 1.0
-//};
-//double dist_coeff[] = {0.297, -1.2, 0.0077, 0.0029};
+double camera_matrix[] =
+{
+    745.7, 0.0, 337.5,
+    0.0, 749.1, 260.3,
+    0.0, 0.0, 1.0
+};
+double dist_coeff[] = {0.297, -1.2, 0.0077, 0.0029};
 
 Mat m_camera_matrix = Mat(3, 3, CV_64FC1, camera_matrix).clone();
 Mat m_dist_coeff = Mat(1, 4, CV_64FC1, dist_coeff).clone();
@@ -70,7 +60,7 @@ int main(int argc, char* argv[])
 
     for (int a=4; a<200;a++)  // a <=Count would do one too many...
     {
-        string name = format("../led_data/frame%04d.jpg", a);
+        string name = format("../frameData/frame%04d.jpg", a);
 
         Mat image = imread(name);
         Mat rgbmap;
